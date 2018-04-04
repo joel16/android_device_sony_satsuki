@@ -27,3 +27,6 @@ PRODUCT_NAME := full_satsuki
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_DEVICE := satsuki
 PRODUCT_MODEL := Xperia Z5 Premium
+
+PRODUCT_GMS_CLIENTID_BASE := android-sony
+TARGET_VENDOR := sony

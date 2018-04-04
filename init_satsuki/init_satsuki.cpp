@@ -69,8 +69,8 @@ static void import_kernel_nv(const std::string& key,
             property_set("ro.product.model", "E6883");
             property_set("ro.product.name", "satsuki_dsds");
             property_set("ro.product.device", "satsuki_dsds");
-            property_set("ro.build.description", "satsuki_dsds-user 7.1.1 N-MR1-KITAKAMI-170609-1025 1 dev-keys");
-            property_set("ro.build.fingerprint", "Sony/satsuki_dsds/satsuki_dsds:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
+            property_set("ro.build.description", "satsuki_dsds-user 7.1.1 N-MR1-KITAKAMI-170920-0229 1 dev-keys");
+            property_set("ro.build.fingerprint", "Sony/satsuki_dsds/satsuki_dsds:7.1.1/N-MR1-KITAKAMI-170920-0229/1:user/dev-keys");
         } else {
             property_set("ro.telephony.default_network", "9");
             property_set("ro.semc.product.model", "E6853");
@@ -78,8 +78,8 @@ static void import_kernel_nv(const std::string& key,
             property_set("ro.product.model", "E6853");
             property_set("ro.product.name", "satsuki");
             property_set("ro.product.device", "satsuki");
-            property_set("ro.build.description", "satsuki-user 7.1.1 N-MR1-KITAKAMI-170609-1025 1 dev-keys");
-            property_set("ro.build.fingerprint", "Sony/satsuki/satsuki:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
+            property_set("ro.build.description", "satsuki-user 7.1.1 N-MR1-KITAKAMI-170920-0229 1 dev-keys");
+            property_set("ro.build.fingerprint", "Sony/satsuki/satsuki:7.1.1/N-MR1-KITAKAMI-170920-0229/1:user/dev-keys");
         }
     }
 }
