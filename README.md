@@ -1,7 +1,7 @@
 Copyright 2016 - The CyanogenMod Project
 Copyright 2017 - The LineageOS Project
 
-Device configuration for Sony Xperia Z5
+Device configuration for Sony Xperia Z5 Premium
 =====================================
 
 Basic   | Spec Sheet
@@ -13,12 +13,12 @@ Memory  | 3 GB
 Shipped Android Version | 5.1.1
 Storage | 32 GB
 MicroSD | Up to 256 GB (dedicated)
-Battery | 2900 mAh (non-removable)
-Dimensions | 146 x 72 x 7.3 mm
-Display | 1080 x 1920 pixels, 5.2" IPS LCD
-Weight  | 154 g
+Battery | 3430 mAh (non-removable)
+Dimensions | 154.4 x 75.8 x 7.8 mm
+Display | 2160 x 3840 pixels, 5.5" IPS LCD
+Weight  | 180 g
 Rear Camera  | 23 MP, LED flash
 Front Camera | 5.1 MP
-Release Date | October 2015
+Release Date | November 2015
 
-![Sony Xperia Z5](http://cdn2.gsmarena.com/vv/pics/sony/sony-z5-4.jpg "Sony Xperia Z5")
+![Sony Xperia Z5 Premium](http://cdn2.gsmarena.com/vv/pics/sony/sony-z5-premium1.jpg "Sony Xperia Z5 Premium")
