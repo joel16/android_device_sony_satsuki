@@ -28,8 +28,8 @@ TARGET_OTA_ASSERT_DEVICE := E6833,E6853,E6883,satsuki,satsuki_dsds
 # Boot image/kernel
 TARGET_KERNEL_CONFIG := kitakami_satsuki_defconfig
 
-# CM hardware
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+# Lineage hardware
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
 
 # Partitions
@@ -53,7 +53,6 @@ WIFI_BUS := PCIE
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_satsuki
-TARGET_UNIFIED_DEVICE := true
 
 # Inherit from the proprietary version
 -include vendor/sony/satsuki/BoardConfigVendor.mk
