@@ -419,6 +419,14 @@
     <ctl name="SLIM_0_RX SampleRate" value="KHZ_48" />
     <!-- High Res end -->
 
+    <!-- Speaker Reverse -->
+    <ctl name="Set Custom Stereo OnOff" value="0" />
+    <!-- Speaker Reverse end -->
+
+    <!-- Speaker reverse, mono -->
+    <ctl name="Set Custom Stereo" value="Off" />
+    <!-- Speaker reverse, mono end -->
+
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="deep-buffer-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia1" value="1" />
@@ -504,6 +512,54 @@
     <path name="low-latency-playback speaker-and-usb-headphones">
         <path name="low-latency-playback usb-headphones" />
         <path name="low-latency-playback" />
+    </path>
+
+    <path name="audio-ull-playback">
+        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback speaker-protected">
+        <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback headphones">
+      <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-headphones">
+        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback headphones" />
+    </path>
+
+    <path name="audio-ull-playback hdmi">
+        <ctl name="HDMI Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback bt-sco">
+        <ctl name="SEC_AUX_PCM_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <path name="audio-ull-playback bt-sco" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-hdmi">
+        <path name="audio-ull-playback hdmi" />
+        <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback afe-proxy">
+        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback usb-headphones">
+        <path name="audio-ull-playback afe-proxy" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-usb-headphones">
+        <path name="audio-ull-playback usb-headphones" />
+        <path name="audio-ull-playback" />
     </path>
 
     <path name="multi-channel-playback hdmi">
@@ -900,6 +956,10 @@
     </path>
 
     <path name="high-res-playback">
+        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia17" value="1" />
+    </path>
+
+    <path name="deep-buffer-spk-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia17" value="1" />
     </path>
 
@@ -1455,7 +1515,7 @@
 
     <!-- Gain offset target for dmic1 unit calibration -->
     <path name="dmic1-adj-gain">
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
     </path>
 
     <!-- Gain offset target for dmic2 unit calibration -->
@@ -1541,6 +1601,7 @@
         <ctl name="VI_FEED_TX Channels" value="Two" />
         <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
         <ctl name="SLIM0_RX_VI_FB_RCH_MUX"  value="SLIM4_TX" />
+        <ctl name="Set Custom Stereo" value="Swap" />
     </path>
 
     <path name="fm-speaker">
@@ -1553,10 +1614,12 @@
 
     <path name="ringtone-speaker">
         <path name="speaker" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="ringtone-speaker-mono">
         <path name="speaker" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="sforce-speaker">
@@ -1651,31 +1714,31 @@
 
    <path name="dnc-sidetone-iir">
         <!-- Sidetone settings for dnc headphones-->
-        <ctl name="IIR1 Band1" id ="0" value="268435456" />
-        <ctl name="IIR1 Band1" id ="1" value="443935179" />
-        <ctl name="IIR1 Band1" id ="2" value="269358496" />
-        <ctl name="IIR1 Band1" id ="3" value="955060837" />
-        <ctl name="IIR1 Band1" id ="4" value="33343805" />
-        <ctl name="IIR1 Band2" id ="0" value="268435456" />
-        <ctl name="IIR1 Band2" id ="1" value="7710844" />
-        <ctl name="IIR1 Band2" id ="2" value="268283273" />
-        <ctl name="IIR1 Band2" id ="3" value="840117549" />
-        <ctl name="IIR1 Band2" id ="4" value="139712744" />
-        <ctl name="IIR1 Band3" id ="0" value="23182528" />
-        <ctl name="IIR1 Band3" id ="1" value="1027384344" />
-        <ctl name="IIR1 Band3" id ="2" value="23182528" />
-        <ctl name="IIR1 Band3" id ="3" value="601007853" />
-        <ctl name="IIR1 Band3" id ="4" value="212407863" />
-        <ctl name="IIR1 Band4" id ="0" value="268874288" />
-        <ctl name="IIR1 Band4" id ="1" value="536870912" />
-        <ctl name="IIR1 Band4" id ="2" value="268874288" />
-        <ctl name="IIR1 Band4" id ="3" value="540255610" />
-        <ctl name="IIR1 Band4" id ="4" value="266706918" />
-        <ctl name="IIR1 Band5" id ="0" value="268710656" />
-        <ctl name="IIR1 Band5" id ="1" value="536870912" />
-        <ctl name="IIR1 Band5" id ="2" value="268710656" />
-        <ctl name="IIR1 Band5" id ="3" value="548490851" />
-        <ctl name="IIR1 Band5" id ="4" value="259251878" />
+        <ctl name="IIR1 Band1" id ="0" value="244717785" />
+        <ctl name="IIR1 Band1" id ="1" value="584487463" />
+        <ctl name="IIR1 Band1" id ="2" value="244536643" />
+        <ctl name="IIR1 Band1" id ="3" value="586603217" />
+        <ctl name="IIR1 Band1" id ="4" value="222934725" />
+        <ctl name="IIR1 Band2" id ="0" value="254988673" />
+        <ctl name="IIR1 Band2" id ="1" value="564070928" />
+        <ctl name="IIR1 Band2" id ="2" value="254903359" />
+        <ctl name="IIR1 Band2" id ="3" value="564070928" />
+        <ctl name="IIR1 Band2" id ="4" value="241456576" />
+        <ctl name="IIR1 Band3" id ="0" value="262148187" />
+        <ctl name="IIR1 Band3" id ="1" value="558586675" />
+        <ctl name="IIR1 Band3" id ="2" value="259428435" />
+        <ctl name="IIR1 Band3" id ="3" value="558586675" />
+        <ctl name="IIR1 Band3" id ="4" value="253141167" />
+        <ctl name="IIR1 Band4" id ="0" value="199951029" />
+        <ctl name="IIR1 Band4" id ="1" value="734484348" />
+        <ctl name="IIR1 Band4" id ="2" value="191789762" />
+        <ctl name="IIR1 Band4" id ="3" value="734484348" />
+        <ctl name="IIR1 Band4" id ="4" value="123305335" />
+        <ctl name="IIR1 Band5" id ="0" value="38679721" />
+        <ctl name="IIR1 Band5" id ="1" value="17906314" />
+        <ctl name="IIR1 Band5" id ="2" value="8111731" />
+        <ctl name="IIR1 Band5" id ="3" value="683833586" />
+        <ctl name="IIR1 Band5" id ="4" value="153821665" />
         <ctl name="IIR1 Enable Band1" value="1" />
         <ctl name="IIR1 Enable Band2" value="1" />
         <ctl name="IIR1 Enable Band3" value="1" />
@@ -1718,31 +1781,31 @@
     </path>
 
     <path name="binaural-monitoring-iir1">
-        <ctl name="IIR1 Band1" id="0" value="805306368" />
-        <ctl name="IIR1 Band1" id="1" value="1031646454" />
-        <ctl name="IIR1 Band1" id="2" value="1073684952" />
-        <ctl name="IIR1 Band1" id="3" value="1061268461" />
-        <ctl name="IIR1 Band1" id="4" value="16075" />
-        <ctl name="IIR1 Band2" id="0" value="309865129" />
-        <ctl name="IIR1 Band2" id="1" value="667264544" />
-        <ctl name="IIR1 Band2" id="2" value="99158926" />
-        <ctl name="IIR1 Band2" id="3" value="753187739" />
-        <ctl name="IIR1 Band2" id="4" value="58995791" />
-        <ctl name="IIR1 Band3" id="0" value="309865129" />
-        <ctl name="IIR1 Band3" id="1" value="827813989" />
-        <ctl name="IIR1 Band3" id="2" value="110641015" />
-        <ctl name="IIR1 Band3" id="3" value="869618231" />
-        <ctl name="IIR1 Band3" id="4" value="71425246" />
-        <ctl name="IIR1 Band4" id="0" value="268435456" />
-        <ctl name="IIR1 Band4" id="1" value="629736193" />
-        <ctl name="IIR1 Band4" id="2" value="215383317" />
-        <ctl name="IIR1 Band4" id="3" value="732042365" />
-        <ctl name="IIR1 Band4" id="4" value="135248387" />
-        <ctl name="IIR1 Band5" id="0" value="268435456" />
-        <ctl name="IIR1 Band5" id="1" value="640211848" />
-        <ctl name="IIR1 Band5" id="2" value="216418561" />
-        <ctl name="IIR1 Band5" id="3" value="639632874" />
-        <ctl name="IIR1 Band5" id="4" value="233335499" />
+        <ctl name="IIR1 Band1" id ="0" value="244717785" />
+        <ctl name="IIR1 Band1" id ="1" value="584487463" />
+        <ctl name="IIR1 Band1" id ="2" value="244536643" />
+        <ctl name="IIR1 Band1" id ="3" value="586603217" />
+        <ctl name="IIR1 Band1" id ="4" value="222934725" />
+        <ctl name="IIR1 Band2" id ="0" value="254988673" />
+        <ctl name="IIR1 Band2" id ="1" value="564070928" />
+        <ctl name="IIR1 Band2" id ="2" value="254903359" />
+        <ctl name="IIR1 Band2" id ="3" value="564070928" />
+        <ctl name="IIR1 Band2" id ="4" value="241456576" />
+        <ctl name="IIR1 Band3" id ="0" value="262148187" />
+        <ctl name="IIR1 Band3" id ="1" value="558586675" />
+        <ctl name="IIR1 Band3" id ="2" value="259428435" />
+        <ctl name="IIR1 Band3" id ="3" value="558586675" />
+        <ctl name="IIR1 Band3" id ="4" value="253141167" />
+        <ctl name="IIR1 Band4" id ="0" value="199951029" />
+        <ctl name="IIR1 Band4" id ="1" value="734484348" />
+        <ctl name="IIR1 Band4" id ="2" value="191789762" />
+        <ctl name="IIR1 Band4" id ="3" value="734484348" />
+        <ctl name="IIR1 Band4" id ="4" value="123305335" />
+        <ctl name="IIR1 Band5" id ="0" value="38679721" />
+        <ctl name="IIR1 Band5" id ="1" value="17906314" />
+        <ctl name="IIR1 Band5" id ="2" value="8111731" />
+        <ctl name="IIR1 Band5" id ="3" value="683833586" />
+        <ctl name="IIR1 Band5" id ="4" value="153821665" />
         <ctl name="IIR1 Enable Band1" value="1" />
         <ctl name="IIR1 Enable Band2" value="1" />
         <ctl name="IIR1 Enable Band3" value="1" />
@@ -1751,31 +1814,31 @@
     </path>
 
     <path name="binaural-monitoring-iir2">
-        <ctl name="IIR2 Band1" id="0" value="805306368" />
-        <ctl name="IIR2 Band1" id="1" value="1031646454" />
-        <ctl name="IIR2 Band1" id="2" value="1073684952" />
-        <ctl name="IIR2 Band1" id="3" value="1061268461" />
-        <ctl name="IIR2 Band1" id="4" value="16075" />
-        <ctl name="IIR2 Band2" id="0" value="309865129" />
-        <ctl name="IIR2 Band2" id="1" value="667264544" />
-        <ctl name="IIR2 Band2" id="2" value="99158926" />
-        <ctl name="IIR2 Band2" id="3" value="753187739" />
-        <ctl name="IIR2 Band2" id="4" value="58995791" />
-        <ctl name="IIR2 Band3" id="0" value="309865129" />
-        <ctl name="IIR2 Band3" id="1" value="827813989" />
-        <ctl name="IIR2 Band3" id="2" value="110641015" />
-        <ctl name="IIR2 Band3" id="3" value="869618231" />
-        <ctl name="IIR2 Band3" id="4" value="71425246" />
-        <ctl name="IIR2 Band4" id="0" value="268435456" />
-        <ctl name="IIR2 Band4" id="1" value="629736193" />
-        <ctl name="IIR2 Band4" id="2" value="215383317" />
-        <ctl name="IIR2 Band4" id="3" value="732042365" />
-        <ctl name="IIR2 Band4" id="4" value="135248387" />
-        <ctl name="IIR2 Band5" id="0" value="268435456" />
-        <ctl name="IIR2 Band5" id="1" value="640211848" />
-        <ctl name="IIR2 Band5" id="2" value="216418561" />
-        <ctl name="IIR2 Band5" id="3" value="639632874" />
-        <ctl name="IIR2 Band5" id="4" value="233335499" />
+        <ctl name="IIR2 Band1" id ="0" value="244717785" />
+        <ctl name="IIR2 Band1" id ="1" value="584487463" />
+        <ctl name="IIR2 Band1" id ="2" value="244536643" />
+        <ctl name="IIR2 Band1" id ="3" value="586603217" />
+        <ctl name="IIR2 Band1" id ="4" value="222934725" />
+        <ctl name="IIR2 Band2" id ="0" value="254988673" />
+        <ctl name="IIR2 Band2" id ="1" value="564070928" />
+        <ctl name="IIR2 Band2" id ="2" value="254903359" />
+        <ctl name="IIR2 Band2" id ="3" value="564070928" />
+        <ctl name="IIR2 Band2" id ="4" value="241456576" />
+        <ctl name="IIR2 Band3" id ="0" value="262148187" />
+        <ctl name="IIR2 Band3" id ="1" value="558586675" />
+        <ctl name="IIR2 Band3" id ="2" value="259428435" />
+        <ctl name="IIR2 Band3" id ="3" value="558586675" />
+        <ctl name="IIR2 Band3" id ="4" value="253141167" />
+        <ctl name="IIR2 Band4" id ="0" value="199951029" />
+        <ctl name="IIR2 Band4" id ="1" value="734484348" />
+        <ctl name="IIR2 Band4" id ="2" value="191789762" />
+        <ctl name="IIR2 Band4" id ="3" value="734484348" />
+        <ctl name="IIR2 Band4" id ="4" value="123305335" />
+        <ctl name="IIR2 Band5" id ="0" value="38679721" />
+        <ctl name="IIR2 Band5" id ="1" value="17906314" />
+        <ctl name="IIR2 Band5" id ="2" value="8111731" />
+        <ctl name="IIR2 Band5" id ="3" value="683833586" />
+        <ctl name="IIR2 Band5" id ="4" value="153821665" />
         <ctl name="IIR2 Enable Band1" value="1" />
         <ctl name="IIR2 Enable Band2" value="1" />
         <ctl name="IIR2 Enable Band3" value="1" />
@@ -1826,25 +1889,25 @@
 
     <path name="stereo-mic">
         <path name="stereo-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
         <ctl name="DEC9 Volume" value="84" />
     </path>
 
     <path name="stereo-mic-gain-low">
         <path name="stereo-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
         <ctl name="DEC9 Volume" value="84" />
     </path>
 
     <path name="stereo-mic-gain-mid">
         <path name="stereo-mic-common" />
-        <ctl name="DEC7 Volume" value="97" />
+        <ctl name="DEC7 Volume" value="98" />
         <ctl name="DEC9 Volume" value="97" />
     </path>
 
     <path name="stereo-mic-gain-high">
         <path name="stereo-mic-common" />
-        <ctl name="DEC7 Volume" value="106" />
+        <ctl name="DEC7 Volume" value="107" />
         <ctl name="DEC9 Volume" value="106" />
     </path>
 
@@ -1854,22 +1917,22 @@
 
     <path name="speaker-mono-mic">
         <path name="speaker-mono-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
     </path>
 
     <path name="speaker-mono-mic-gain-low">
         <path name="speaker-mono-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
     </path>
 
     <path name="speaker-mono-mic-gain-mid">
         <path name="speaker-mono-mic-common" />
-        <ctl name="DEC7 Volume" value="89" />
+        <ctl name="DEC7 Volume" value="90" />
     </path>
 
     <path name="speaker-mono-mic-gain-high">
         <path name="speaker-mono-mic-common" />
-        <ctl name="DEC7 Volume" value="95" />
+        <ctl name="DEC7 Volume" value="96" />
     </path>
 
     <path name="speaker-mic-liquid">
@@ -2166,6 +2229,7 @@
         <ctl name="RX1 Digital Volume" value="55" />
         <ctl name="RX2 Digital Volume" value="55" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-and-headphones-hi-res">
@@ -2178,6 +2242,7 @@
         <ctl name="RX1 Digital Volume" value="55" />
         <ctl name="RX2 Digital Volume" value="55" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="ringtone-speaker-and-headphones">
@@ -2435,25 +2500,25 @@
 
     <path name="camcorder-mic">
         <path name="camcorder-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
         <ctl name="DEC9 Volume" value="84" />
     </path>
 
     <path name="camcorder-mic-gain-low">
         <path name="camcorder-mic-common" />
-        <ctl name="DEC7 Volume" value="84" />
+        <ctl name="DEC7 Volume" value="85" />
         <ctl name="DEC9 Volume" value="84" />
     </path>
 
     <path name="camcorder-mic-gain-mid">
         <path name="camcorder-mic-common" />
-        <ctl name="DEC7 Volume" value="97" />
+        <ctl name="DEC7 Volume" value="98" />
         <ctl name="DEC9 Volume" value="97" />
     </path>
 
     <path name="camcorder-mic-gain-high">
         <path name="camcorder-mic-common" />
-        <ctl name="DEC7 Volume" value="106" />
+        <ctl name="DEC7 Volume" value="107" />
         <ctl name="DEC9 Volume" value="106" />
     </path>
 
@@ -2663,13 +2728,13 @@
         <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
         <ctl name="HPHL DAC Switch" value="1" />
         <!--75 % of 20 register: 0x1AE-->
-        <ctl name="HPHL Volume" value="15" />
+        <ctl name="HPHL Volume" value="20" />
         <!--75 % of 20 register: 0x1B4-->
-        <ctl name="HPHR Volume" value="15" />
+        <ctl name="HPHR Volume" value="20" />
         <!--66 % of 124 (rounded) register: 0x2B7-->
-        <ctl name="RX1 Digital Volume" value="82" />
+        <ctl name="RX1 Digital Volume" value="75" />
         <!--66 % of 124 (rounded) register: 0x2BF-->
-        <ctl name="RX2 Digital Volume" value="82" />
+        <ctl name="RX2 Digital Volume" value="75" />
     </path>
 
     <path name="binaural-mic-common">
@@ -2690,8 +2755,8 @@
         <!-- 120dBSPLpeak & -33dBV/Pa so mic gain 10.5dB so ADCx VOL = 7 -->
         <ctl name="ADC3 Volume" value="13" />
         <ctl name="ADC2 Volume" value="13" />
-        <ctl name="IIR1 INP1 Volume" value="87" />
-        <ctl name="IIR2 INP1 Volume" value="87" />
+        <ctl name="IIR1 INP1 Volume" value="79" />
+        <ctl name="IIR2 INP1 Volume" value="79" />
         <path name="binaural-mic-common" />
     </path>
 
@@ -2699,8 +2764,8 @@
         <!-- 93dBSPLpeak & -33dBV/Pa so mic gain 28.5dB so ADCx VOL = 19 -->
         <ctl name="ADC3 Volume" value="18" />
         <ctl name="ADC2 Volume" value="18" />
-        <ctl name="IIR1 INP1 Volume" value="69" />
-        <ctl name="IIR2 INP1 Volume" value="69" />
+        <ctl name="IIR1 INP1 Volume" value="72" />
+        <ctl name="IIR2 INP1 Volume" value="72" />
         <path name="binaural-mic-common" />
     </path>
 
@@ -2708,8 +2773,8 @@
         <!-- 112dBSPLpeak & -33dBV/Pa so mic gain 18dB so ADCx VOL = 12 -->
         <ctl name="ADC3 Volume" value="17" />
         <ctl name="ADC2 Volume" value="17" />
-        <ctl name="IIR1 INP1 Volume" value="80" />
-        <ctl name="IIR2 INP1 Volume" value="80" />
+        <ctl name="IIR1 INP1 Volume" value="73" />
+        <ctl name="IIR2 INP1 Volume" value="73" />
         <path name="binaural-mic-common" />
     </path>
 
@@ -2717,8 +2782,44 @@
         <!-- 120dBSPLpeak & -33dBV/Pa so mic gain 10.5dB so ADCx VOL = 7 -->
         <ctl name="ADC3 Volume" value="5" />
         <ctl name="ADC2 Volume" value="5" />
-        <ctl name="IIR1 INP1 Volume" value="87" />
-        <ctl name="IIR2 INP1 Volume" value="87" />
+        <ctl name="IIR1 INP1 Volume" value="91" />
+        <ctl name="IIR2 INP1 Volume" value="91" />
+        <path name="binaural-mic-common" />
+    </path>
+
+    <path name="binaural2-mic">
+        <!-- 120dBSPLpeak & -33dBV/Pa so mic gain 10.5dB so ADCx VOL = 7 -->
+        <ctl name="ADC3 Volume" value="13" />
+        <ctl name="ADC2 Volume" value="13" />
+        <ctl name="IIR1 INP1 Volume" value="79" />
+        <ctl name="IIR2 INP1 Volume" value="79" />
+        <path name="binaural-mic-common" />
+    </path>
+
+    <path name="binaural2-mic-gain-high">
+        <!-- 93dBSPLpeak & -33dBV/Pa so mic gain 28.5dB so ADCx VOL = 19 -->
+        <ctl name="ADC3 Volume" value="18" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="IIR1 INP1 Volume" value="72" />
+        <ctl name="IIR2 INP1 Volume" value="72" />
+        <path name="binaural-mic-common" />
+    </path>
+
+    <path name="binaural2-mic-gain-mid">
+        <!-- 112dBSPLpeak & -33dBV/Pa so mic gain 18dB so ADCx VOL = 12 -->
+        <ctl name="ADC3 Volume" value="17" />
+        <ctl name="ADC2 Volume" value="17" />
+        <ctl name="IIR1 INP1 Volume" value="73" />
+        <ctl name="IIR2 INP1 Volume" value="73" />
+        <path name="binaural-mic-common" />
+    </path>
+
+    <path name="binaural2-mic-gain-low">
+        <!-- 120dBSPLpeak & -33dBV/Pa so mic gain 10.5dB so ADCx VOL = 7 -->
+        <ctl name="ADC3 Volume" value="5" />
+        <ctl name="ADC2 Volume" value="5" />
+        <ctl name="IIR1 INP1 Volume" value="91" />
+        <ctl name="IIR2 INP1 Volume" value="91" />
         <path name="binaural-mic-common" />
     </path>
 
@@ -3004,6 +3105,8 @@
         <ctl name="ANC2 MUX" value="ZERO" />
         <ctl name="ADC3 Volume" value="10" />
         <ctl name="ADC2 Volume" value="10" />
+        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="84" />
         <ctl name="ANC1 FB MUX" value="ZERO" />
         <ctl name="ANC Function" value="OFF" />
     </path>
@@ -3021,8 +3124,8 @@
         <ctl name="COMP1 Switch" value="0" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="77" />
+        <ctl name="RX2 Digital Volume" value="77" />
         <ctl name="ADC3 Volume" value="10" />
         <ctl name="ADC2 Volume" value="10" />
         <ctl name="ANC1 FB MUX" value="EAR_HPH_L" />
@@ -3065,8 +3168,8 @@
         <ctl name="COMP1 Switch" value="0" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="77" />
+        <ctl name="RX2 Digital Volume" value="77" />
         <ctl name="ADC3 Volume" value="10" />
         <ctl name="ADC2 Volume" value="10" />
         <ctl name="ANC1 FB MUX" value="EAR_HPH_L" />
@@ -3106,8 +3209,8 @@
         <ctl name="COMP1 Switch" value="0" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="77" />
+        <ctl name="RX2 Digital Volume" value="77" />
     </path>
 
     <path name="anc-off-headphone-regulation">
@@ -3508,6 +3611,7 @@
         <ctl name="RX1 Digital Volume" value="50" />
         <ctl name="RX2 Digital Volume" value="50" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-anc-nc-off-headphone">
@@ -3516,6 +3620,7 @@
         <ctl name="RX1 Digital Volume" value="50" />
         <ctl name="RX2 Digital Volume" value="50" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-mono-ring-anc-nc-headphone">
@@ -3587,6 +3692,7 @@
         <ctl name="RX1 Digital Volume" value="56" />
         <ctl name="RX2 Digital Volume" value="56" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-anc-nce-off-headphone">
@@ -3595,6 +3701,7 @@
         <ctl name="RX1 Digital Volume" value="56" />
         <ctl name="RX2 Digital Volume" value="56" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-mono-ring-anc-nce-headphone">
@@ -3816,6 +3923,7 @@
         <ctl name="RX1 Digital Volume" value="50" />
         <ctl name="RX2 Digital Volume" value="50" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-anc-nc-off-headphone-hi-res">
@@ -3824,6 +3932,7 @@
         <ctl name="RX1 Digital Volume" value="50" />
         <ctl name="RX2 Digital Volume" value="50" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-ring-anc-nc-headphone-hi-res">
@@ -3866,6 +3975,7 @@
         <ctl name="RX1 Digital Volume" value="56" />
         <ctl name="RX2 Digital Volume" value="56" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-anc-nce-off-headphone-hi-res">
@@ -3874,6 +3984,7 @@
         <ctl name="RX1 Digital Volume" value="56" />
         <ctl name="RX2 Digital Volume" value="56" />
         <path name="headphones-hpf" />
+        <ctl name="Set Custom Stereo" value="Mix" />
     </path>
 
     <path name="speaker-ring-anc-nce-headphone-hi-res">
@@ -4141,6 +4252,19 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
+    </path>
+
+    <path name="anc-preparation-combo-rx">
+        <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
+        <ctl name="SLIM RX2 MUX" value="AIF1_PB" />
+        <ctl name="SLIM_0_RX Channels" value="Two" />
+        <ctl name="RX1 MIX1 INP1" value="RX2" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+    </path>
+
+    <path name="anc-playback-volume">
+        <ctl name="RX1 Digital Volume" value="77" />
+        <ctl name="RX2 Digital Volume" value="77" />
     </path>
 
 </mixer>
