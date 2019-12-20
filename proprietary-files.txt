@@ -7,9 +7,6 @@ etc/acdbdata/Sony/Sony_Hdmi_cal.acdb
 etc/acdbdata/Sony/Sony_Headset_cal.acdb
 etc/acdbdata/Sony/Sony_Speaker_cal.acdb
 
-# Bluetooth
-etc/firmware/BCM43xx.hcd
-
 # Camera
 bin/mm-qcamera-daemon
 lib/hw/camera.qcom.so
@@ -631,18 +628,10 @@ etc/customization/modem/amss_fsg_satsuki_vodafone_uk_ims_tar.mbn
 
 # NFC
 lib64/hw/libpn547_fw.so
-etc/libnfc-brcm.conf
-etc/libnfc-nxp.conf
-
-# Radio 
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
 
 # Sensors
 bin/sensors.qcom:vendor/bin/sensors.qcom
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
-etc/sensors/sensor_def_qcomdev.conf
 vendor/lib/hw/activity_recognition.msm8994.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
@@ -653,7 +642,6 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/sensors.ssc.so
 
 # Thermal
-etc/thermal-engine.conf
 vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
