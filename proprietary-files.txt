@@ -539,15 +539,13 @@ vendor/lib64/libStDrvInt.so
 lib64/hw/libpn547_fw.so
 
 # Sensors
-bin/sensors.qcom:vendor/bin/sensors.qcom
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
-vendor/lib/hw/activity_recognition.msm8994.so
 etc/sensors/sensor_def_qcomdev.conf
+bin/sensors.qcom
 vendor/lib/libdataitems.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/sensors.ssc.so
-vendor/lib64/hw/activity_recognition.msm8994.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
