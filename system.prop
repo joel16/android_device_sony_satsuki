@@ -5,3 +5,11 @@ ro.sf.lcd_density=480
 ro.semc.content.number=PA27
 ro.semc.ms_type_id=PM-0911-BV
 ro.semc.product.device=E68
+
+#ifdef VENDOR_EDIT
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+persist.data.iwlan.enable=true
+persist.dbg.wfc_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+#endif
