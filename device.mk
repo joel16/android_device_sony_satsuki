@@ -27,6 +27,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Boot animation
 TARGET_SCREEN_HEIGHT := 3840
 TARGET_SCREEN_WIDTH := 2160
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
