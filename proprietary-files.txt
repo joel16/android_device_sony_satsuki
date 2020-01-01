@@ -11,7 +11,8 @@ etc/acdbdata/Sony/Sony_Speaker_cal.acdb
 etc/firmware/BCM43xx.hcd
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+lib/hw/camera.msm8994.so:vendor/lib/hw/camera.msm8994.so
 lib/hw/camera.qcom.so
 lib/libcamera_clientsemc.so
 lib/libcammw.so
@@ -519,7 +520,7 @@ lib/libsomc_chokoballcmn.so
 lib/libsomc_chokoballpal.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -644,7 +645,7 @@ lib64/hw/libpn547_fw.so
 # Sensors
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
 etc/sensors/sensor_def_qcomdev.conf
-bin/sensors.qcom
+bin/sensors.qcom:vendor/bin/sensors.qcom
 vendor/lib/libdataitems.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
