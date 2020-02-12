@@ -71,10 +71,8 @@ temps_hysteresis=15
 tempoffset=255
 rawtempsense=0x1ff
 
-tworangetssi2g=1
+tworangetssi2g=0
 tworangetssi5g=0
-lowpowerrange2g=0
-lowpowerrange5g=0
 
 #pa2gccka0=-145,6220,-699
 #pa2gccka1=-167,5991,-703
@@ -124,6 +122,7 @@ mcsbw805ghpo=0xcaaaaaaa,0x11111111
 mcslr5glpo=0x0000
 mcslr5gmpo=0x0000
 mcslr5ghpo=0x0000
+
 sb20in40hrpo=0x0
 sb20in80and160hr5glpo=0x0
 sb40and80hr5glpo=0x0

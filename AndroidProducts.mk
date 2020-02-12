@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The Android Open Source Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-add_lunch_combo lineage_satsuki-userdebug
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/lineage_satsuki.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_satsuki-user \
+    lineage_satsuki-userdebug \
+    lineage_satsuki-eng

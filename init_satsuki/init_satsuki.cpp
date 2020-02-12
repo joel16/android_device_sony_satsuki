@@ -36,9 +36,10 @@
 using android::init::import_kernel_cmdline;
 using android::init::property_set;
 
-void property_override(char const prop[], char const value[]) {
+void property_override(char const prop[], char const value[])
+{
     prop_info *pi;
-    
+
     pi = (prop_info*) __system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
@@ -46,14 +47,23 @@ void property_override(char const prop[], char const value[]) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void property_override_dual(char const system_prop[], char const vendor_prop[], char const value[]) {
+void property_override_dual(char const system_prop[], char const vendor_prop[], char const value[])
+{
     property_override(system_prop, value);
     property_override(vendor_prop, value);
 }
 
-static void import_kernel_nv(const std::string& key, const std::string& value, bool for_emulator __attribute__((unused))) {
-    if (key.empty())
-        return;
+void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
+{
+    property_override(product_prop, value);
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
+static void import_kernel_nv(const std::string& key,
+        const std::string& value, bool for_emulator __attribute__((unused)))
+{
+    if (key.empty()) return;
 
     if (key == "oemandroidboot.phoneid") {
         // Dual Sim variant contains two IMEIs separated by comma.
@@ -63,31 +73,25 @@ static void import_kernel_nv(const std::string& key, const std::string& value, b
             property_set("ro.telephony.default_network", "9,1");
             property_set("ro.semc.product.model", "E6883");
             property_set("ro.semc.product.name", "Xperia Z5 Premium Dual");
-            property_override_dual("ro.product.model", "ro.vendor.product.model", "E6883");
+            property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "E6883");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "satsuki_dsds");
-            property_override_dual("ro.product.device", "ro.vendor.product.device", "satsuki_dsds");
+            property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "satsuki_dsds");
             property_override("ro.build.description", "satsuki_dsds-user 7.1.1 N-MR1-KITAKAMI-170609-1025 1 dev-keys");
-            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Sony/satsuki_dsds/satsuki_dsds:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
+            property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "Sony/satsuki_dsds/satsuki_dsds:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
         } else {
-            property_set("persist.radio.block_allow_data", "1");
             property_set("ro.telephony.default_network", "9");
             property_set("ro.semc.product.model", "E6853");
             property_set("ro.semc.product.name", "Xperia Z5 Premium");
-            property_override_dual("ro.product.model", "ro.vendor.product.model", "E6853");
+            property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "E6853");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "satsuki");
-            property_override_dual("ro.product.device", "ro.vendor.product.device", "satsuki");
+            property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "satsuki");
             property_override("ro.build.description", "satsuki-user 7.1.1 N-MR1-KITAKAMI-170609-1025 1 dev-keys");
-            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Sony/satsuki/satsuki:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
+            property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "Sony/satsuki/satsuki:7.1.1/N-MR1-KITAKAMI-170609-1025/1:user/dev-keys");
         }
     }
 }
 
-void vendor_load_properties() {
+void vendor_load_properties()
+{
     import_kernel_cmdline(0, import_kernel_nv);
-    property_set("dalvik.vm.heapstartsize", "8m");
-    property_set("dalvik.vm.heapgrowthlimit", "192m");
-    property_set("dalvik.vm.heapsize", "512m");
-    property_set("dalvik.vm.heaptargetutilization", "0.75");
-    property_set("dalvik.vm.heapminfree", "512k");
-    property_set("dalvik.vm.heapmaxfree", "8m");
 }

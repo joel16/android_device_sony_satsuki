@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,16 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-include $(CLEAR_VARS)
+# Inherit from satsuki device
+$(call inherit-product, device/sony/satsuki/device.mk)
 
-LOCAL_MODULE_TAGS := optional
-LOCAL_C_INCLUDES := \
-	system/core/init \
-	external/selinux/libselinux/include \
-LOCAL_CFLAGS := -Wall -DANDROID_TARGET=\"$(TARGET_BOARD_PLATFORM)\"
-LOCAL_SRC_FILES := init_satsuki.cpp
-LOCAL_MODULE := libinit_satsuki
-
-LOCAL_STATIC_LIBRARIES := libbase
-
-include $(BUILD_STATIC_LIBRARY)
+# Set those variables here to overwrite the inherited values.
+PRODUCT_BRAND := Sony
+PRODUCT_NAME := full_satsuki
+PRODUCT_MANUFACTURER := Sony
+PRODUCT_DEVICE := satsuki
+PRODUCT_MODEL := Xperia Z5 Premium
