@@ -19,9 +19,6 @@ include device/sony/kitakami-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/sony/satsuki
 
-# Use Snapdragon LLVM, if available
-TARGET_USE_SDCLANG := true
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := E6833,E6853,E6883,satsuki,satsuki_dsds
 
