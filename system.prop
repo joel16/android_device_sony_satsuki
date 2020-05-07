@@ -1,0 +1,7 @@
+# Display density
+ro.sf.lcd_density=480
+
+# Semc props
+ro.semc.content.number=PA27
+ro.semc.ms_type_id=PM-0911-BV
+ro.semc.product.device=E68
