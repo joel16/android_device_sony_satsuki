@@ -19,9 +19,9 @@ cc_library_static {
     recovery_available: true,
     srcs: ["init_satsuki.cpp"],
     include_dirs: [
-        "system/core/base/include",
         "system/core/init",
         "external/selinux/libselinux/include",
         "external/libcap/libcap/include"
-    ]
+    ],
+    shared_libs: ["libbase"],
 }
