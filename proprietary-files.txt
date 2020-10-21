@@ -44,6 +44,7 @@ lib/libsomc_yummyrsc.so
 lib/libsony_fooddetect.so
 lib/libsony_naruto.so
 lib64/libcamera_clientsemc.so
+vendor/lib/hw/camera.vendor.qcom.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
