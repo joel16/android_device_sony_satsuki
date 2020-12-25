@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_satsuki.mk
+    $(LOCAL_DIR)/carbon_satsuki.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_satsuki-user \
-    lineage_satsuki-userdebug \
-    lineage_satsuki-eng
+    carbon_satsuki-user \
+    carbon_satsuki-userdebug \
+    carbon_satsuki-eng
