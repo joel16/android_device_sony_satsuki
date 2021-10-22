@@ -39,4 +39,7 @@
 
     <!-- Idle Receive current for wifi radio. 0 by default-->
     <integer translatable="false" name="config_wifi_idle_receive_cur_ma">3</integer>
+
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps">true</bool>
 </resources>
