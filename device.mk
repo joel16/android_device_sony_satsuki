@@ -25,7 +25,3 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # HW Keystore
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore=msm8994
-
-# Time Zone data for recovery
-PRODUCT_COPY_FILES += \
-    system/timezone/output_data/iana/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
